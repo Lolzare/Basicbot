@@ -1,17 +1,23 @@
 (function () {
-//Define our function responsible for extending the bot.
-function extend() {
-//If the bot hasn't been loaded properly, try again in 1 second(s).
-if (!window.bot) {
-return setTimeout(extend, 1 * 1000);
-}
+  
+  
+    //Define our function responsible for extending the bot.
+    function extend() {
+        //If the bot hasn't been loaded properly, try again in 1 second(s).
+        if (!window.bot) {
+          return setTimeout(extend, 1 * 1000);
+        }
+
 //Precaution to make sure it is assigned properly.
 var bot = window.bot;
+
 //Load custom settings set below
 bot.retrieveSettings();
+
 /*
 Extend the bot here, either by calling another function or here directly.
 Model code for a bot command:
+
 bot.commands.commandCommand = {
 command: 'cmd',
 rank: 'user/bouncer/mod/manager',
@@ -24,6 +30,7 @@ else{
 }
 }
 }
+
 */
 bot.commands.baconCommand = {
 command: 'bacon', //The command to be called. With the standard command literal this would be: !bacon
@@ -45,8 +52,8 @@ localStorage.setItem("basicBotsettings", JSON.stringify({
 botName: "basicBot",
 language: "english",
 chatLink: "https://rawgit.com/Yemasthui/basicBot/master/lang/en.json",
-startupCap: 100, // 1-200
-startupVolume: 50, // 0-100
+startupCap: 1, // 1-200
+startupVolume: 0, // 0-100
 startupEmoji: false, // true or false
 maximumAfk: 120,
 afkRemoval: true,
@@ -57,8 +64,8 @@ lockGuard: false,
 maximumLocktime: 10,
 cycleGuard: true,
 maximumCycletime: 10,
-voteSkip: true,
-voteSkipLimit: 5,
+voteSkip: false,
+voteSkipLimit: 10,
 timeGuard: true,
 maximumSongLength: 10,
 autodisable: true,
